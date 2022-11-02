@@ -52,7 +52,7 @@
 
 </section>
     
-    <section id="group-by">
+    <section id="syntax">
 <p><h1>SQL Syntax</h1></p>
 
 <li>
@@ -86,22 +86,64 @@
     <p>Sort the results of the query.</p>
     <p>The ORDER BY keyword is used to sort the result-set in ascending or descending order.</p>
     </li>
+</section>
+    
 <hr>
-<p><h1>Class Example:</h1></p>
+    
+    <section id="example1">
+<p>
+        <h1>Class Example 1:</h1>
+        </p>
 
 <p>// Example from here: http://nyintergroup.com/meetings/?tsml-day=any&tsml-attendance_option=active</p>
 <p>// We want to see all meetings in the East Village on Wednesdays</p>
 <p>// on or after 4:00pm</p>
-<p>SELECT day,time,name,location,address,neighborhood,COUNT(name) AS num_meetings //adding column with the number of meetings</p>
-<p>FROM aa_meetings</p>
-<p>WHERE day='Wednesdays' AND neighborhood='East Village' AND time>=timestamp'4:00pm'</p>
+<p>
+    SELECT day,time,name,location,address,neighborhood,COUNT(name) AS num_meetings //adding column with the number of meetings
+    </p>
+<p>
+    FROM aa_meetings
+    </p>
+<p>
+    WHERE day='Wednesdays' AND neighborhood='East Village' AND time>=timestamp'4:00pm'
+    </p>
 <p>// time needs to be converted in a function</p>
 <p>// time can be recorded differently, 8.5 instead of 8:30am, 13.5 instead of 1:30pm.</p>
 <p>// GROUP BY</p>
 <p>// HAVING</p>
-<p>GROUP BY name // you can group on multiple columns — for example day or time</p>
-<p>ORDER BY time // default is ascending</p>
-<p>;</p>
+<p>
+    GROUP BY name // you can group on multiple columns — for example day or time
+    </p>
+<p>
+    ORDER BY time // default is ascending
+    </p>
+<p>
+    ;
+    </p>
+</section>
+
+    <section id="example2">
+<p>
+        <h1>Class Example 2:</h1>
+        </p>
+<p>
+    SELECT day,time,name,location,address,neighborhood,COUNT(name) AS num_meetings //adding column with the number of meetings
+</p>
+<p>
+    FROM meetings as a JOIN meta-data as m ON a.location,b.
+</p>
+<p>
+    WHERE 
+    </p>
+<p>
+    GROUP BY 
+    </p>
+<p>
+    ORDER BY
+    </p>
+<p>
+    ;
+</p>
 </section>
 
 
