@@ -1,0 +1,110 @@
+<html>
+
+<head>
+    <style>
+        header {
+            font-family: "Tiempos Text", Georgia, serif;
+            font-size: 16px;
+            text-align: center;
+            background-color: black;
+            color: white;
+            padding: 3px;
+        }
+        body {
+            font-family: arial;
+            font-size: 14px;
+            text-align: justify;
+            margin: 10px;
+        }
+        h1 {
+            font-family: arial;
+            font-size: 16px;
+        }
+        #intro {
+            border-style: solid;
+            border-color: black;
+            border-width: 1px;
+            padding: 4px;
+        }
+        .spacer {
+            height: 20px;
+        }
+    </style>
+<main>
+<header>
+<p>SQL<i> (Sequel)</i></p>
+<p style="font-size:12px"><i>Date: Nov. 2, 2022</i></p>
+</header>
+
+</head>
+
+<body>
+
+<div class="spacer"></div>
+    
+<section id="intro">
+    <p><h1>
+        What is SQL?
+    </h1></p>
+    <p>
+        SQL is a standard language for storing, manipulating and retrieving data in databases. More info <a href="https://www.w3schools.com/sql/default.asp">here</a>.</p>
+    <p>No SQL query can change the original data.</p>
+
+</section>
+    
+    <section id="group-by">
+<p><h1>SQL Syntax</h1></p>
+
+<li>
+    <b>SELECT:</b> <i>column_name(s) / column 1, column 2, etc.</i>
+    <p>Absolutely have to have.</p>
+    <p>List of the column names that you want to have.</p>
+    <p>"#" means "select everything".</p>
+    <p>The SELECT statement is used to select data from a database.</p>
+    </li>
+<li>
+    <b>FROM</b> <i>(optional JOIN)</i><b>:</b> <i>table_name.</i>
+    <p>Absolutely have to have.</p>
+    <p>Name of the table where the columns are coming from.</p>
+    </li>
+<li>
+    <b>WHERE:</b> <i>condition.</i>
+    <p>It is used to extract only those records that fulfill a specified condition.</p>
+    </li>
+<li>
+    <b>GROUP BY:</b> <i>column_name(s).</i>
+    <p>Something that you want to organize by, for example organize data by meeting group.</p>
+    <p>The GROUP BY statement groups rows that have the same values into summary rows, like "find the number of meetings in each neighborhood".</p>
+    </li>
+<li>
+    <b>HAVING:</b> <i>filter what came out of "group by".</i>
+    <p>Really rarely used.</p>
+    <p>The HAVING clause was added to SQL because the WHERE keyword cannot be used with aggregate functions.</p>
+    </li>
+<li>
+    <b>ORDER BY:</b> <i>column_name(s).</i>
+    <p>Sort the results of the query.</p>
+    <p>The ORDER BY keyword is used to sort the result-set in ascending or descending order.</p>
+    </li>
+
+<p><h1>Class Example:</h1></p>
+
+<p>// Example from here: http://nyintergroup.com/meetings/?tsml-day=any&tsml-attendance_option=active</p>
+<p>// We want to see all meetings in the East Village on Wednesdays</p>
+<p>// on or after 4:00pm</p>
+<p>SELECT day,time,name,location,address,neighborhood,COUNT(name) AS num_meetings //adding column with the number of meetings</p>
+<p>FROM aa_meetings</p>
+<p>WHERE day='Wednesdays' AND neighborhood='East Village' AND time>=timestamp'4:00pm'</p>
+<p>// time needs to be converted in a function</p>
+<p>// time can be recorded differently, 8.5 instead of 8:30am, 13.5 instead of 1:30pm.</p>
+<p>// GROUP BY</p>
+<p>// HAVING</p>
+<p>GROUP BY name // you can group on multiple columns — for example day or time</p>
+<p>ORDER BY time // default is ascending</p>
+<p>;</p>
+</section>
+
+
+</body>
+</main>
+</html>
