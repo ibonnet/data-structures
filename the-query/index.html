@@ -32,6 +32,7 @@
         }
         .note {
             font-style: italic;
+            color: #494949;
         }
     </style>
 <main>
@@ -90,6 +91,18 @@
     <p>Sort the results of the query.</p>
     <p>The ORDER BY keyword is used to sort the result-set in ascending or descending order.</p>
     </li>
+    
+    <p>
+        <h1>KeyConditionExpression</h1>
+    </p>
+    <li>PartitionKey</li>
+    <li>SortKey</li>
+    <p>
+        A single query can only get one result — for example a school ID. Each <b>query</b> can only get <b>one</b> value. <i>SortKey</i> gives more flexibility.
+    </p>
+    <p>
+        More info on <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Query.html">KeyConditionExpression</a>.
+    </p>
 </section>
     
 <hr>
