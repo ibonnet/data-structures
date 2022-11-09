@@ -27,7 +27,14 @@
             border-color: black;
             border-width: 1px;
             padding: 4px;
+            width: 700px;
+            margin: auto;
         }
+        
+                #index {
+            text-align: center;
+        }
+        
         .spacer {
             height: 20px;
         }
@@ -35,6 +42,7 @@
             font-style: italic;
             color: #494949;
         }
+        
     </style>
     </head>
     
@@ -47,7 +55,12 @@
 
 <body>
 
-<div class="spacer"></div>
+<section id="index">
+    <p>Index:</p>
+    <p><a href="#syntax">SQL Syntax</a> - <a href="#KeyConditionExpression">Key Condition Expressions</a> - <a href="#NoSQL">Objects for NoSQL</a> - <a href="#ClassExamples">Class exercises</a></p>
+</section>
+
+    <div class="spacer"></div>
     
 <section id="intro">
     <p><h1>
@@ -58,9 +71,9 @@
     <p>No SQL query can change the original data.</p>
 
 </section>
-    
+
     <div class="spacer"></div>
-    
+
     <section id="syntax">
 <p><h1>SQL Syntax</h1></p>
 
@@ -99,7 +112,7 @@
 
     <div class="spacer"></div>
 
-<section>    
+<section id="KeyConditionExpression">    
     <p>
         <h1>KeyConditionExpression</h1>
     </p>
@@ -115,7 +128,7 @@
 
    <div class="spacer"></div>
 
-<section>   
+<section id="NoSQL">   
 <p>
     <h1>Objects for SQL/NoSQL</h1>
     </p>
@@ -127,7 +140,7 @@
     <li>Parking information</li>
     <li>Effectiveness of meeting</li>
     <li>Short description of the meeting</li>
-    <li>Q&A forum (anonymous)</li>
+    <li>Q&A forum (anonymous): GROUP</li>
     
     <p>Qualitative data / Single objects per meeting:</p>
     <li>Photos of surroundings areas: NoSQL.</li>
@@ -140,7 +153,8 @@
 <div class="spacer"></div>
     
 <hr>
-    
+   <section id="ClassExamples"></section>
+   
     <section id="example1">
 <p>
         <h1>Class Example 1:</h1>
@@ -235,10 +249,10 @@
 
 <li>
     <b>PartitionKey:</b> Datetime ("Jan 1 2022")
-    <i class="note">// Auto-generated Key (for example 0001), automatic number for each diary entry, only one date time possible.</i>
+    <i class="note"> // Auto-generated Key (for example 0001), automatic number for each diary entry, only one date time possible.</i>
     </li>
 <li>
-    <b>SortKey:</b> Category ("Work")<i class="note">// We don't have to have a SortKey.</i>
+    <b>SortKey:</b> Category ("Work")<i class="note"> // We don't have to have a SortKey.</i>
     </li>
 <p>
     Change SortKey and PartitionKey in this way:
