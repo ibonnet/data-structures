@@ -8,14 +8,15 @@
             text-align: center;
             background-color: black;
             color: white;
-            padding: 3px;
-            margin: 20px;
+            padding: 2px;
+            margin: 0px;
         }
+        
         body {
             font-family: arial;
             font-size: 14px;
             text-align: justify;
-            margin: 10px;
+            margin: 15px;
         }
         h1 {
             font-family: arial;
@@ -35,13 +36,14 @@
             color: #494949;
         }
     </style>
+    </head>
+    
 <main>
+    
 <header>
 <p>SQL</p>
 <p style="font-size:12px"><i>Semester: Fall 2022</i></p>
 </header>
-
-</head>
 
 <body>
 
@@ -56,6 +58,8 @@
     <p>No SQL query can change the original data.</p>
 
 </section>
+    
+    <div class="spacer"></div>
     
     <section id="syntax">
 <p><h1>SQL Syntax</h1></p>
@@ -91,19 +95,49 @@
     <p>Sort the results of the query.</p>
     <p>The ORDER BY keyword is used to sort the result-set in ascending or descending order.</p>
     </li>
-    
+</section>
+
+    <div class="spacer"></div>
+
+<section>    
     <p>
         <h1>KeyConditionExpression</h1>
     </p>
     <li>PartitionKey</li>
     <li>SortKey</li>
     <p>
-        A single query can only get one result — for example a school ID. Each <b>query</b> can only get <b>one</b> value. <i>SortKey</i> gives more flexibility.
+        A single query can only get one result - for example a school ID. Each <b>query</b> can only get <b>one</b> value. <i>SortKey</i> gives more flexibility.
     </p>
     <p>
         More info on <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Query.html">KeyConditionExpression</a>.
     </p>
 </section>
+
+   <div class="spacer"></div>
+
+<section>   
+<p>
+    <h1>Objects for SQL/NoSQL</h1>
+    </p>
+    
+    <p>Qualitative data:</p>
+    <li>Distance, travel time, travel information</li>
+    <li>Contact information: SQL. This belong in a table.</li>
+    <li>Log/record for individual users (private): NoSQL. Privately available data. User ID for example.</li>
+    <li>Parking information</li>
+    <li>Effectiveness of meeting</li>
+    <li>Short description of the meeting</li>
+    <li>Q&A forum (anonymous)</li>
+    
+    <p>Qualitative data / Single objects per meeting:</p>
+    <li>Photos of surroundings areas: NoSQL.</li>
+    <li>Journals, notes, notes of encouragement: Record for each meeting.</li>
+    <li>Anonymous sharing</li>
+    <li>Comments, reviews, photos, ambiance, testimonials</li>
+    
+</section>
+
+<div class="spacer"></div>
     
 <hr>
     
@@ -116,7 +150,8 @@
 <p class="note">// We want to see all meetings in the East Village on Wednesdays</p>
 <p class="note">// on or after 4:00pm</p>
 <p>
-    SELECT day,time,name,location,address,neighborhood,COUNT(name) AS num_meetings <i>//adding column with the number of meetings</i>
+    SELECT day,time,name,location,address,neighborhood,COUNT(name) AS num_meetings
+    <i class="note">//adding column with the number of meetings</i>
     </p>
 <p>
     FROM aa_meetings
@@ -129,10 +164,10 @@
 <p class="note">// GROUP BY</p>
 <p class="note">// HAVING</p>
 <p>
-    GROUP BY name <i>// you can group on multiple columns — for example day or time</i>
+    GROUP BY name <i class="note">// you can group on multiple columns - for example day or time</i>
     </p>
 <p>
-    ORDER BY time <i>// default is ascending</i>
+    ORDER BY time <i class="note">// default is ascending</i>
     </p>
 <p>
     ;
@@ -146,7 +181,8 @@
         <h1>Class Example 2:</h1>
         </p>
 <p>
-    SELECT day,time,name,location,address,neighborhood,COUNT(name) AS num_meetings <i>//adding column with the number of meetings</i>
+    SELECT day,time,name,location,address,neighborhood,COUNT(name) AS num_meetings
+    <i class="note">//adding column with the number of meetings</i>
 </p>
 <p>
     FROM meetings as a JOIN meta-data as m ON a.location,b.
@@ -178,7 +214,6 @@
 <p>
     <i>What is this query going to do? What do we want our user to see?</i>
     </p>
-<div class="spacer"></div>
 
 <hr>
 <p>
@@ -189,11 +224,54 @@
 <li>Diary entry</li>
 <li>Supporting media (photos, videos, icons, etc.)</li>
 
-<p><b>Query on:</b> Category*, with the ability to filter by date ranges.
-    </p>
+<div class="spacer"></div>
+
+<p>
+    <b>Query on:</b> Category*, with the ability to filter by date ranges.
+</p>
 <p><i>*showing all entires for a given category , starting with the most recent.</i></p>
 
+<div class="spacer"></div>
+
+<li>
+    <b>PartitionKey:</b> Datetime ("Jan 1 2022")
+    <i class="note">// Auto-generated Key (for example 0001), automatic number for each diary entry, only one date time possible.</i>
+    </li>
+<li>
+    <b>SortKey:</b> Category ("Work")<i class="note">// We don't have to have a SortKey.</i>
+    </li>
+<p>
+    Change SortKey and PartitionKey in this way:
+</p>
+<p>0001 work</p>
+<p>0002 exercise</p>
+<p>0003 work</p>
+
+<p>This would allow the categories to have a unique number for each entry.</p>
+
+<div class="spacer"></div>
+
+<p>
+    SELECT FROM
+</p>
+<p>
+    FROM TABLE
+</p>
+<p>
+    WHERE
+</p>
+<p>GROUP BY</p>
+<p>
+    ORDER BY
+</p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+
+<div class="spacer"></div>
 
 </body>
+
 </main>
 </html>
